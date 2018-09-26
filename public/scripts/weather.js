@@ -6,8 +6,7 @@ class Weather {
   }
 
   // fetch weather from API
-  // if CORS need disabling for testing, close Chrome and start it via CLI: "chrome --disable-web-security --user-data-dir"
-  // https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome
+  // if CORS need disabling for testing, close Chrome and start it via CLI: "chrome --disable-web-security --user-data-dir" (https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome)
   async getWeather(){
     const response = await fetch(`https://api.darksky.net/forecast/${this.apiKey}/${this.lat},${this.lon}`);
 

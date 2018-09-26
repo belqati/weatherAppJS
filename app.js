@@ -1,14 +1,3 @@
-// // get current location
-// let lat;
-// let lon;
-
-// navigator.geolocation.getCurrentPosition(function(position) {
-//   lat = position.coords.latitude;
-//   lon = position.coords.longitude;
-  
-//   // console.log(lat, lon);
-// });
-
 // init localStorage
 const storage = new Storage();
 // get stored location data
@@ -37,6 +26,24 @@ document.querySelector('#w-change-btn').addEventListener('click', (e) => {
 
   // close modal (must use JQuery for Bootstrap modal)
   $('#locModal').modal('hide');
+});
+
+// getLocalWeather event
+document.querySelector('#getLocalWeather').addEventListener('click', (e) => {
+  // get current location via geolocation
+  navigator.geolocation.getCurrentPosition(function(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    
+    // change location
+    weather.changeLocation(lat, lon);
+
+    // set location to localStorage
+    storage.setLocationData(lat, lon);
+
+    // get and display weather
+    getWeather();
+  });
 });
 
 function getWeather(){
