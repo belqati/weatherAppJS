@@ -1,6 +1,8 @@
 class Weather {
   constructor(lat, lon){
-    this.apiKey = process.env.DARKSKY_SECRET;
+    // DELETE KEY BEFORE COMMITS
+    this.apiKey = 'b0c655f51933681fe396c39f5bf4c1d0';
+    // this.apiKey = process.env.DARKSKY_SECRET;
     this.lat = lat;
     this.lon = lon;
   }
