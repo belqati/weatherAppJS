@@ -1,4 +1,4 @@
-// get current location
+// // get current location
 // let lat;
 // let lon;
 
@@ -6,15 +6,24 @@
 //   lat = position.coords.latitude;
 //   lon = position.coords.longitude;
   
-//   console.log(position.coords.latitude, position.coords.longitude);
+//   // console.log(lat, lon);
 // });
 
 // initialize weather object
-const weather = new Weather(42.199422999999996, -87.8143274);
+const weather = new Weather(40, 40);
+// init UI
+const ui = new UI();
 
+// get weather on DOM load
+document.addEventListener('DOMContentLoaded', getWeather);
+
+// weather.changeLocation(20, 80);
+
+function getWeather(){
 weather.getWeather()
   .then(results => {
+    ui.paint(results);
     console.log(results);
   })
   .catch(err => console.log(err));
-
+}

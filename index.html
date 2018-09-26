@@ -15,19 +15,22 @@
       <a href="#" class="navbar-brand"><i class="fas fa-sun"></i> Weather App JS</a>
     </div>
   </nav>
-  
+
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto text-center bg-light mt-5 p5 rounded">
-        <h1 id="w-location">placeHolder</h1>
-        <h3 class="text-dark" id="w-desc">placeHolder</h3>
-        <h3 id="w-string">placeHolder</h3>
-        <img id="w-icon">
+        <h1 id="w-timezone"></h1>
+        <h3 class="w-latLon"></h3>
+        <h3 class="text-dark" id="w-summary"></h3>
+<!--         <h3 id="w-string"></h3> -->
+        <h3 id="w-icon"></h3>
+<!--         <img id="w-icon"> -->
         <ul id="w-details" class="list-group mt-3">
-          <li class="list-group-item" id="w-humidity">placeHolder</li>
-          <li class="list-group-item" id="w-dewpoint">placeHolder</li>
-          <li class="list-group-item" id="w-feels-like">placeHolder</li>
-          <li class="list-group-item" id="w-wind">placeHolder</li>
+          <li class="list-group-item" id="w-humidity"></li>
+          <li class="list-group-item" id="w-dewPoint"></li>
+          <li class="list-group-item" id="w-temp"></li>
+          <li class="list-group-item" id="w-apparent-temp"></li>
+          <li class="list-group-item" id="w-wind"></li>
         </ul>
         <hr>
 
@@ -52,12 +55,12 @@
         <div class="modal-body">
           <form id="w-form">
             <div class="form-group">
-              <label for="city">City</label>
-              <input type="text" id="city" class="form-control">
+              <label for="lat">Latitude</label>
+              <input type="text" class="form-control lat">
             </div>
             <div class="form-group">
-              <label for="state">State</label>
-              <input type="text" id="state" class="form-control">
+              <label for="lon">Longitude</label>
+              <input type="text" class="form-control lon">
             </div>
           </form>
         </div>
@@ -70,11 +73,11 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
   <script src="public/scripts/storage.js"></script>
   <script src="public/scripts/weather.js"></script>
+  <script src="public/scripts/skycons.js"></script>
   <script src="public/scripts/ui.js"></script>
   <script src="app.js"></script>
 </body>
