@@ -10,7 +10,7 @@
 // });
 
 // initialize weather object
-const weather = new Weather(40, 40);
+const weather = new Weather(20, -20);
 // init UI
 const ui = new UI();
 
