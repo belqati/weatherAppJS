@@ -5,7 +5,7 @@ class Storage {
     this.placeName;
     this.defaultLat = 36.2048;
     this.defaultLon = 138.2529;
-    this.defaultPN = 'Nagawa, Japan';
+    // this.defaultPN = 'Nagawa, Japan';
   }
 
   getLocationData(){
@@ -21,11 +21,11 @@ class Storage {
       this.lon = localStorage.getItem('lon');
     }
 
-    if(localStorage.getItem('placeName') === null){
-      this.placeName = this.defaultPN;
-    } else {
+    // if(localStorage.getItem('placeName') === null){
+    //   this.placeName = this.defaultPN;
+    // } else {
       this.placeName = localStorage.getItem('placeName');
-    }
+    // }
 
     return {
       lat: this.lat,

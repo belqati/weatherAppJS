@@ -25,9 +25,9 @@ class Weather {
     const placeName = placeData.plus_code.compound_code;
 
     if(placeName === undefined){
-      console.log('placeName is undefined')
+      return 'Undisclosed Place Name';
     } else {
-      console.log(placeName.slice(8));
+      // console.log(placeName.slice(8));
       return placeName.slice(8);
     }
 

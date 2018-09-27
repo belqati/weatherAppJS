@@ -58,8 +58,6 @@ function getWeather(){
 function getPlace(){
   weather.getPlace()
     .then(place => {
-      const placeName = place;
-      storage.setPlaceName(place);
       ui.paintPlace(place);
     })
     .catch(err => console.log(err));

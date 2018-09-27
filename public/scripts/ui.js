@@ -16,15 +16,15 @@ class UI {
 
   // weather data for html
   paint(weather){
-    this.timezone.textContent = weather.timezone;
-    this.latLon.textContent = `Latitude & Longitude: ${weather.latitude}, ${weather.longitude}`;
+    this.timezone.textContent = `Timezone: ${weather.timezone}`;
+    this.latLon.textContent = `Latitude & Longitude: ${weather.latitude.toFixed(6)}, ${weather.longitude.toFixed(6)}`;
     this.summary.textContent = weather.currently.summary;
     // this.icon.textContent = weather.currently.icon;
     this.humidity.textContent = `Relative Humidity: ${Math.round(weather.currently.humidity*100)}%`;
     this.dewPoint.textContent = `Dew Point: ${weather.currently.dewPoint} °F`;
     this.temperature.textContent = `Temp: ${weather.currently.temperature} °F`;
     this.apparentTemperature.textContent = `Feels Like: ${weather.currently.apparentTemperature} °F`;
-    this.windSpeed.textContent = `Wind Speed: ${weather.currently.windSpeed} m/h`;
+    this.windSpeed.textContent = `Wind Speed: ${weather.currently.windSpeed} mph`;
 
     // init skycons for darksky (https://github.com/darkskyapp/skycons)
     let skycons = new Skycons();
