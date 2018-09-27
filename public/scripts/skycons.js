@@ -622,7 +622,7 @@
         s = Math.min(w, h);
 
     swoosh(ctx, t, w * 0.5, h * 0.5, s, s * STROKE, 0, 2, '#636E79');
-    swoosh(ctx, t, w * 0.5, h * 0.5, s, s * STROKE, 1, 2, '#636E79');
+    swoosh(ctx, t, w * 0.5, h * 0.5, s, s * STROKE, 1, 2, '#919BA5');
   };
 
   Skycons.FOG = function(ctx, t, color) {

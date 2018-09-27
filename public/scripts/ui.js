@@ -1,6 +1,7 @@
 class UI {
   constructor(){
     this.timezone = document.querySelector('#w-timezone');
+    this.placeName = document.querySelector('#placeName');
     this.latLon = document.querySelector('.w-latLon');
     this.summary = document.querySelector('#w-summary');
     // this.string = document.querySelector('#w-string');
@@ -31,5 +32,11 @@ class UI {
     skycons.add(this.skycon, weather.currently.icon);
     // animate
     skycons.play();
+  }
+
+  // placeName for html
+  paintPlace(place){
+    this.placeName.textContent = place;
+    // console.log('paintPlace fired', place);
   }
 }

@@ -3,7 +3,7 @@ const storage = new Storage();
 // get stored location data
 const weatherLocation = storage.getLocationData();
 // init weather object
-const weather = new Weather(weatherLocation.lat, weatherLocation.lon);
+const weather = new Weather(weatherLocation.lat, weatherLocation.lon, weatherLocation.placeName);
 // init UI
 const ui = new UI();
 
@@ -50,7 +50,17 @@ function getWeather(){
   weather.getWeather()
     .then(results => {
       ui.paint(results);
-      console.log(results);
+    })
+    .catch(err => console.log(err));
+  getPlace();
+}
+
+function getPlace(){
+  weather.getPlace()
+    .then(place => {
+      const placeName = place;
+      storage.setPlaceName(place);
+      ui.paintPlace(place);
     })
     .catch(err => console.log(err));
 }
