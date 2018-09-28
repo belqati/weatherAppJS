@@ -1,3 +1,4 @@
+// modified colors
 (function(global) {
   "use strict";
 
@@ -643,7 +644,7 @@
         e = Math.floor(n - k * 0.5) + 0.5,
         f = Math.floor(n - k * 2.5) + 0.5;
 
-    ctx.strokeStyle = color.fog || color;
+    ctx.strokeStyle = color.fog || '#919BA5';
     ctx.lineWidth = k;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";

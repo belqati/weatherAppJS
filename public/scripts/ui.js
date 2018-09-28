@@ -17,7 +17,7 @@ class UI {
   // weather data for html
   paint(weather){
     this.timezone.textContent = `Timezone: ${weather.timezone}`;
-    this.latLon.textContent = `Latitude & Longitude: ${weather.latitude.toFixed(6)}, ${weather.longitude.toFixed(6)}`;
+    this.latLon.textContent = `Latitude & Longitude: ${weather.latitude.toFixed(4)}, ${weather.longitude.toFixed(4)}`;
     this.summary.textContent = weather.currently.summary;
     // this.icon.textContent = weather.currently.icon;
     this.humidity.textContent = `Relative Humidity: ${Math.round(weather.currently.humidity*100)}%`;
@@ -37,6 +37,6 @@ class UI {
   // placeName for html
   paintPlace(place){
     this.placeName.textContent = place;
-    // console.log('paintPlace fired', place);
+    console.log('paintPlace fired', place);
   }
 }

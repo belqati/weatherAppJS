@@ -22,17 +22,41 @@ class Weather {
     const place = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=${this.apiKeyGC}&latlng=${this.lat},${this.lon}`);
 
     const placeData = await place.json();
-    const placeName = placeData.plus_code.compound_code;
+    let placeName;
 
-    if(placeName === undefined){
+    if(placeData.status == 'ZERO_RESULTS'){
       return 'Undisclosed Place Name';
     } else {
-      // console.log(placeName.slice(8));
-      return placeName.slice(8);
+      placeName = placeData.plus_code.compound_code;
+      if(placeName === undefined){
+        return 'Undisclosed Place Name';
+      } else {
+        // console.log(placeName.slice(8));
+        return placeName.slice(8);
+      }
     }
-
   }
 
+  async getAddress(){
+    const address = await fetch(`https://maps.googleapis.com/maps/api/js?key=${this.apiKeyGC}&libraries=places&callback=initAutocomplete`);
+
+    function initAutocomplete(){
+      let input = document.querySelector('#newLocation');
+      let searchBox = new google.maps.places.SearchBox(input);
+      let address;
+      // Listen for the event fired when the user selects a prediction and retrieve details
+      searchBox.addListener('places_changed', function() {
+        let places = searchBox.getPlaces();
+        address = places[0].formatted_address;
+
+        console.log(address);
+        if (places.length == 0) {
+          return;
+        }
+      });
+    }
+  }
+  
   // change weather location
   changeLocation(lat, lon){
     this.lat = lat;
