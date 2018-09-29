@@ -4,47 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>weatherAppJS</title>
-<!--   <link rel="icon" type="image/x-icon" href="/public/imgs/github_icon.ico"> -->
+  <link rel="icon" type="image/x-icon" href="/public/imgs/sunburst_icon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
-  <link rel="stylesheet" href="/public/styles/main.css"></head>
+  <link rel="stylesheet" href="/public/styles/main.css">
+</head>
+
 <body>
-  <nav class="navbar navbar-dark bg-dark mb-3 p-0">
-    <div class="container">
-      <a href="#" class="navbar-brand"><i class="fas fa-sun"></i> Weather App JS</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark m-0 p-2">
+    <a href="#" class="navbar-brand"><i class="fas fa-sun"></i> Weather App JS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <form class="form-inline">
+        <div class="form-group">
+          <!-- trigger modal -->
+          <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#locModal">
+           <i class="fas fa-globe"></i> Lat & Lon
+          </button>
+          <button type="button" class="btn btn-dark mr-3" id="getLocalWeather"><i class="fas fa-map-marker-alt"></i> Local</button>
+        </div>
+        <div class="form-group">
+          <input id="newLocation" class="form-control controls" type="text" placeholder="New Weather Location&hellip;">
+        </div>
+      </form>
     </div>
   </nav>
 
-  <form class="container">
-    <div class="form-group">
-      <label for="newLocation">New Weather Location</label>
-      <input id="newLocation" class="form-control controls" type="text" placeholder="Search for New Location&hellip;">
-    </div>
-  </form>
-
   <div class="container">
     <div class="row">
-      <div class="col-md-6 mx-auto text-center bg-light mt-5 p5 rounded">
+      <div class="weatherBlock col-sm-12 mx-auto text-center mt-4 p-3 rounded">
         <h1 id="placeName"></h1>
-        <h3 id="w-timezone"></h3>
         <h5 class="w-latLon"></h5>
-        <h3 class="text-dark" id="w-summary"></h3>
+        <h5 id="w-timezone"></h5>
         <canvas id="skycon"></canvas>
-        <ul id="w-details" class="list-group mt-3">
-          <li class="list-group-item" id="w-humidity"></li>
-          <li class="list-group-item" id="w-dewPoint"></li>
-          <li class="list-group-item" id="w-temp"></li>
-          <li class="list-group-item" id="w-apparent-temp"></li>
-          <li class="list-group-item" id="w-wind"></li>
-        </ul>
-        <hr>
+        <h3 id="w-summary"></h3>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <ul id="w-details" class="list-group mt-3">
+                <li class="list-group-item" id="w-humidity"></li>
+                <li class="list-group-item" id="w-dewPoint"></li>
+                <li class="list-group-item" id="w-temp"></li>
+                <li class="list-group-item" id="w-apparent-temp"></li>
+                <li class="list-group-item" id="w-wind"></li>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <ul id="w-details" class="list-group mt-3">
+                <li class="list-group-item" id="w-"></li>
+                <li class="list-group-item" id="w-"></li>
+                <li class="list-group-item" id="w-"></li>
+                <li class="list-group-item" id="w-"></li>
+                <li class="list-group-item" id="w-"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <!-- trigger modal -->
-        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#locModal">
-          Change Location
-        </button>
-        <button type="button" class="btn btn-secondary" id="getLocalWeather">Get Local Weather?</button>
       </div>
     </div>
   </div>
@@ -72,12 +92,24 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button id="w-change-btn" type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+          <button id="w-change-btn" type="button" class="btn btn-dark">Save changes</button>
         </div>
       </div>
     </div>
   </div>
+
+  <footer id="footerPartial" class="bg-dark">
+    <div class="footerWrapper">
+      <span>Created by belQati ©2018</span>
+      <a class="footerLink" href="https://github.com/belqati/" target="blank"><i class="fab fa-github"></i></a>
+      <a class="footerLink" href="https://twitter.com/belqati/" target="blank"><i class="fab fa-twitter"></i></a>
+      <div class="float-right">
+        <img id="darkskylogo" src="/public/imgs/darkskylogo.png">
+        <a href="https://darksky.net/poweredby/" target="blank">Powered by Dark Sky</a>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>

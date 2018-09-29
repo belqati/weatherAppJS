@@ -21,7 +21,7 @@ class UI {
   paint(weather){
     this.timezone.textContent = `Timezone: ${weather.timezone}`;
     this.latLon.textContent = `Latitude & Longitude: ${weather.latitude.toFixed(4)}, ${weather.longitude.toFixed(4)}`;
-    this.summary.textContent = weather.currently.summary;
+    this.summary.textContent = `Conditions: ${weather.currently.summary}`;
     // this.icon.textContent = weather.currently.icon;
     this.humidity.textContent = `Relative Humidity: ${Math.round(weather.currently.humidity*100)}%`;
     this.dewPoint.textContent = `Dew Point: ${weather.currently.dewPoint} °F`;

@@ -1,9 +1,62 @@
 body {
   background: #304E6C;
   color: #B59F6A;
-  font-family: Raleway;
+  font-family: 'Roboto Slab';
+}
+
+a, a:hover {
+  color: #B59F6A !important;
+  text-decoration: none;
 }
 
 canvas {
   width: 200px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+li {
+  color: #343a40;
+  text-align: left;
+}
+
+.btn-dark:hover, .btn-dark:active, .btn-dark:focus {
+  background-color: #343a40 !important;
+  color: #fff !important;
+}
+
+.navbar-brand {
+  font-size: 1.6rem;
+}
+
+#newLocation {
+  min-width: 300px;
+}
+
+.weatherBlock {
+  background: #2E4359;
+  box-shadow: 0 0 1px #fff;
+}
+
+#footerPartial {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 15px 0 15px;
+}
+
+.footerLink {
+  padding-left: 10px;
+  font-size: 1.2em;
+}
+
+.footerWrapper {
+  margin-bottom: 10px;
+}
+
+#darkskylogo {
+  width: 25px;
 }
