@@ -12,9 +12,12 @@ class UI {
     this.temperature = document.querySelector('#w-temp');
     this.apparentTemperature = document.querySelector('#w-apparent-temp');
     this.windSpeed = document.querySelector('#w-wind');
+    this.newLocation = document.querySelector('#newLocation');
+    this.lat = document.querySelector('#lat');
+    this.lon = document.querySelector('#lon');
   }
 
-  // weather data for html
+  // paint weather data for html
   paint(weather){
     this.timezone.textContent = `Timezone: ${weather.timezone}`;
     this.latLon.textContent = `Latitude & Longitude: ${weather.latitude.toFixed(4)}, ${weather.longitude.toFixed(4)}`;
@@ -34,9 +37,15 @@ class UI {
     skycons.play();
   }
 
-  // placeName for html
+  // paint placeName for html
   paintPlace(place){
     this.placeName.textContent = place;
-    console.log('paintPlace fired', place);
+  }
+
+  // clear form inputs
+  clear(){
+    this.newLocation.value = '';
+    this.lat.value = '';
+    this.lon.value = '';
   }
 }

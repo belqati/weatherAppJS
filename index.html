@@ -20,34 +20,8 @@
     <div class="form-group">
       <label for="newLocation">New Weather Location</label>
       <input id="newLocation" class="form-control controls" type="text" placeholder="Search for New Location&hellip;">
-<!--       <button id="submit" type="button" class="btn btn-secondary">Submit</button> -->
     </div>
   </form>
-<!--   <div id="map" class="container"></div>
- -->
-<!--   <script>
-      function initAutocomplete(){
-        let input = document.querySelector('#newLocation');
-        let searchBox = new google.maps.places.SearchBox(input);
-        let address;
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-          let places = searchBox.getPlaces();
-          address = places[0].formatted_address;
-
-          console.log(address);
-          if (places.length == 0) {
-            return;
-          }
-        });
-      }
-  </script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ1oPGkUiB-m0mrIPLS7QoMBeZlC36L_U&libraries=places&callback=initAutocomplete" async defer></script> -->
-  
-<!--   <script src="https://maps.googleapis.com/maps/api/geocode/json?address=OLD+Perry+Hwy,+Wexford,+PA+15090,+USA&key=AIzaSyAJ1oPGkUiB-m0mrIPLS7QoMBeZlC36L_U" async defer></script>
- -->
 
   <div class="container">
     <div class="row">
@@ -113,5 +87,9 @@
   <script src="public/scripts/skycons.js"></script>
   <script src="public/scripts/ui.js"></script>
   <script src="app.js"></script>
+
+  <!-- for geocoder via app.js -->
+  <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+
 </body>
 </html>

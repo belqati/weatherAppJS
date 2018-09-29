@@ -11,16 +11,13 @@ class Weather {
   // if CORS need disabling for testing, close Chrome and start it via CLI: "chrome --disable-web-security --user-data-dir" (https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome)
   async getWeather(){
     const response = await fetch(`https://api.darksky.net/forecast/${this.apiKeyDS}/${this.lat},${this.lon}`);
-
     const responseData = await response.json();
-
-    // limit response to current conditions
     return responseData;
   }
 
+  // fetch place name based on lat/lon
   async getPlace(){
     const place = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?key=${this.apiKeyGC}&latlng=${this.lat},${this.lon}`);
-
     const placeData = await place.json();
     let placeName;
 
@@ -37,29 +34,14 @@ class Weather {
     }
   }
 
-  async getAddress(){
-    const address = await fetch(`https://maps.googleapis.com/maps/api/js?key=${this.apiKeyGC}&libraries=places&callback=initAutocomplete`);
-
-    function initAutocomplete(){
-      let input = document.querySelector('#newLocation');
-      let searchBox = new google.maps.places.SearchBox(input);
-      let address;
-      // Listen for the event fired when the user selects a prediction and retrieve details
-      searchBox.addListener('places_changed', function() {
-        let places = searchBox.getPlaces();
-        address = places[0].formatted_address;
-
-        console.log(address);
-        if (places.length == 0) {
-          return;
-        }
-      });
-    }
-  }
-  
-  // change weather location
+  // change weather location via lat/lon
   changeLocation(lat, lon){
     this.lat = lat;
     this.lon = lon;
+  }
+  
+  // make apiKeyGC accessible for geocoder in app.js
+  weatherAPI(){
+    return this.apiKeyGC;
   }
 }
