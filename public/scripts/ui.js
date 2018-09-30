@@ -4,8 +4,6 @@ class UI {
     this.placeName = document.querySelector('#placeName');
     this.latLon = document.querySelector('.w-latLon');
     this.summary = document.querySelector('#w-summary');
-    // this.string = document.querySelector('#w-string');
-    // this.icon = document.querySelector('#w-icon');
     this.skycon = document.querySelector('#skycon');
     this.humidity = document.querySelector('#w-humidity');
     this.dewPoint = document.querySelector('#w-dewPoint');
@@ -23,13 +21,12 @@ class UI {
     this.timezone.textContent = `Timezone: ${weather.timezone}`;
     this.latLon.textContent = `Latitude & Longitude: ${weather.latitude.toFixed(4)}, ${weather.longitude.toFixed(4)}`;
     this.summary.textContent = `Conditions: ${weather.currently.summary}`;
-    // this.icon.textContent = weather.currently.icon;
-    this.humidity.textContent = `Relative Humidity: ${Math.round(weather.currently.humidity*100)}%`;
-    this.dewPoint.textContent = `Dew Point: ${weather.currently.dewPoint} °F`;
-    this.temperature.textContent = `Temp: ${weather.currently.temperature} °F`;
-    this.apparentTemperature.textContent = `Feels Like: ${weather.currently.apparentTemperature} °F`;
-    this.windSpeed.textContent = `Wind Speed: ${weather.currently.windSpeed} mph`;
-    this.cloudCover.textContent = `Cloud Cover: ${Math.round(weather.currently.cloudCover*100)}%`;
+    this.humidity.innerHTML = `<i class="fas fa-hot-tub mr-2"></i> Relative Humidity: ${Math.round(weather.currently.humidity*100)}%`;
+    this.dewPoint.innerHTML = `<i class="fas fa-tint mr-2"></i> Dew Point: ${weather.currently.dewPoint} °F`;
+    this.temperature.innerHTML = `<i class="fas fa-thermometer-half mr-2"></i> Temperature: ${weather.currently.temperature} °F`;
+    this.apparentTemperature.innerHTML = `<i class="fas fa-thermometer mr-2"></i> Feels Like: ${weather.currently.apparentTemperature} °F`;
+    this.windSpeed.innerHTML = `<i class="fas fa-flag mr-2"></i> Wind Speed: ${weather.currently.windSpeed} mph`;
+    this.cloudCover.innerHTML = `<i class="fas fa-cloud mr-2"></i> Cloud Cover: ${Math.round(weather.currently.cloudCover*100)}%`;
 
     // init skycons for darksky (https://github.com/darkskyapp/skycons)
     let skycons = new Skycons();

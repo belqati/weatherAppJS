@@ -28,7 +28,6 @@ class Weather {
       if(placeName === undefined){
         return 'Undisclosed Place Name';
       } else {
-        // console.log(placeName.slice(8));
         return placeName.slice(8);
       }
     }

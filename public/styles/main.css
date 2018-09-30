@@ -1,5 +1,5 @@
 body {
-  background: #304E6C;
+  background: #7C92A8;
   color: #B59F6A;
   font-family: 'Roboto Slab';
 }
@@ -18,13 +18,26 @@ h1 {
 }
 
 li {
-  color: #343a40;
+  background-color: #304E6C !important;
+  color: #fff;
   text-align: left;
+  box-shadow: 0 0 1px #fff;
 }
 
-.btn-dark:hover, .btn-dark:active, .btn-dark:focus {
-  background-color: #343a40 !important;
+li i {
+  color: #B59F6A;
+  font-size: 1.3rem;
+}
+
+nav, .modal-content {
+  background-color: #2E4359;
+}
+
+.btn-dark, .btn-dark:hover, .btn-dark:active, .btn-dark:focus {
+  background-color: #2E4359 !important;
   color: #fff !important;
+  border: none;
+  box-shadow: none !important;
 }
 
 .navbar-brand {
@@ -40,7 +53,8 @@ li {
   box-shadow: 0 0 1px #fff;
 }
 
-#footerPartial {
+footer {
+  background-color: #2E4359;
   position: absolute;
   left: 0;
   bottom: 0;
