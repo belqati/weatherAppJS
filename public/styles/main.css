@@ -1,3 +1,16 @@
+html, body {
+  height: 100%;
+  position: relative;
+}
+
+#shell {
+  min-height: 100vh; /* cover 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of footer */
+}
+
 body {
   background: #7C92A8;
   color: #B59F6A;
@@ -59,16 +72,13 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 50px;
   padding: 10px 10px 0 10px;
 }
 
 .footerLink {
   padding-left: 10px;
   font-size: 1.2em;
-}
-
-.footerWrapper {
-  margin-bottom: 10px;
 }
 
 #darkskylogo {
