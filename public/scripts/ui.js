@@ -12,6 +12,7 @@ class UI {
     this.temperature = document.querySelector('#w-temp');
     this.apparentTemperature = document.querySelector('#w-apparent-temp');
     this.windSpeed = document.querySelector('#w-wind');
+    this.cloudCover = document.querySelector('#w-cloudCover');
     this.newLocation = document.querySelector('#newLocation');
     this.lat = document.querySelector('#lat');
     this.lon = document.querySelector('#lon');
@@ -28,6 +29,7 @@ class UI {
     this.temperature.textContent = `Temp: ${weather.currently.temperature} °F`;
     this.apparentTemperature.textContent = `Feels Like: ${weather.currently.apparentTemperature} °F`;
     this.windSpeed.textContent = `Wind Speed: ${weather.currently.windSpeed} mph`;
+    this.cloudCover.textContent = `Cloud Cover: ${Math.round(weather.currently.cloudCover*100)}%`;
 
     // init skycons for darksky (https://github.com/darkskyapp/skycons)
     let skycons = new Skycons();
