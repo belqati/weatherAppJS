@@ -7,6 +7,10 @@ const weather = new Weather(weatherLocation.lat, weatherLocation.lon, weatherLoc
 // init UI
 const ui = new UI();
 
+// listeners for user unit display preference
+const celsiusBtn = document.querySelector('#celsius');
+const fahrenheitBtn = document.querySelector('#fahrenheit');
+
 // get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
 
@@ -41,14 +45,42 @@ document.querySelector('#getLocalWeather').addEventListener('click', (e) => {
   });
 });
 
+// set local storage for celsius
+celsiusBtn.addEventListener('click', (e) => {
+  const tempFC = 'celsius';
+  storage.setTempFC(tempFC);
+  getWeather();
+});
+
+// set local storage for fahrenheit
+fahrenheitBtn.addEventListener('click', (e) => {
+  const tempFC = 'fahrenheit';
+  storage.setTempFC(tempFC);
+  getWeather();
+});
+
 // get weather and paint results
 function getWeather(){
   weather.getWeather()
     .then(results => {
+      // get user unit preference
+      let temp = storage.getTempFC();
       ui.paint(results);
+      getPlace();
+
+      // logic for painting unit preference
+      if(temp.tempFC === 'celsius'){
+        // change button active status
+        celsiusBtn.classList.add('active');
+        fahrenheitBtn.classList.remove('active');
+        ui.paintC(results);
+      } else {
+        celsiusBtn.classList.remove('active');
+        fahrenheitBtn.classList.add('active');
+        ui.paintF(results);
+      }
     })
     .catch(err => console.log(err));
-  getPlace();
   // clear form fields
   ui.clear();
 }

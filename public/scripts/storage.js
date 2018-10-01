@@ -2,12 +2,13 @@ class Storage {
   constructor(){
     this.lat;
     this.lon;
-    // this.placeName;
+    this.tempFC;
     this.defaultLat = 36.2048;
     this.defaultLon = 138.2529;
-    // this.defaultPN = 'Nagawa, Japan';
+    this.defaultTempFC = 'fahrenheit';
   }
 
+  // lat/lon location logic
   getLocationData(){
     if(localStorage.getItem('lat') === null){
       this.lat = this.defaultLat;
@@ -21,16 +22,22 @@ class Storage {
       this.lon = localStorage.getItem('lon');
     }
 
-    if(localStorage.getItem('placeName') === null){
-      this.placeName = this.defaultPN;
-    } else {
-      this.placeName = localStorage.getItem('placeName');
-    }
-
     return {
       lat: this.lat,
       lon: this.lon,
-      // placeName: this.placeName
+    }
+  }
+
+  // temp unit type logic
+  getTempFC(){
+    if(localStorage.getItem('tempFC') === null){
+      this.tempFC = this.defaultTempFC;
+    } else {
+      this.tempFC = localStorage.getItem('tempFC');
+    }
+
+    return {
+      tempFC: this.tempFC
     }
   }
 
@@ -39,7 +46,7 @@ class Storage {
     localStorage.setItem('lon', lon);
   }
 
-  // setPlaceName(placeName){
-  //   localStorage.setItem('placeName', placeName);
-  // }
+  setTempFC(tempFC){
+    localStorage.setItem('tempFC', tempFC);
+  }
 }

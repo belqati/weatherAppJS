@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>weatherAppJS</title>
-  <link rel="icon" type="image/x-icon" href="/public/imgs/sunburst_icon.ico">
+  <link rel="icon" type="image/x-icon" href="/public/imgs/sunburst_xrL_icon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
@@ -37,26 +37,32 @@
 
   <div class="container">
     <div class="row">
-      <div class="weatherBlock col-sm-12 mx-auto text-center mt-4 p-3 rounded">
+      <div class="weatherBlock col-sm-12 mx-auto text-center mt-4 p-3 pb-4 rounded">
         <h1 id="placeName"></h1>
         <h5 class="w-latLon"></h5>
         <h5 id="w-timezone"></h5>
         <canvas id="skycon"></canvas>
         <h3 id="w-summary"></h3>
+
+<div class="btn-group">
+  <div class="btn btn-outline-secondary" id="fahrenheit">°F</div>
+  <div class="btn btn-outline-secondary" id="celsius">°C</div>
+</div>
+
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
               <ul id="w-details" class="list-group mt-3">
                 <li class="list-group-item" id="w-temp"></li>
                 <li class="list-group-item" id="w-apparent-temp"></li>
-                <li class="list-group-item" id="w-wind"></li>
+                <li class="list-group-item" id="w-dewPoint"></li>
               </ul>
             </div>
             <div class="col-sm-6">
               <ul id="w-details" class="list-group mt-3">
+                <li class="list-group-item" id="w-wind"></li>
                 <li class="list-group-item" id="w-cloudCover"></li>
                 <li class="list-group-item" id="w-humidity"></li>
-                <li class="list-group-item" id="w-dewPoint"></li>
               </ul>
             </div>
           </div>
