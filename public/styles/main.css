@@ -58,7 +58,7 @@ nav, .modal-content {
 }
 
 #newLocation {
-  min-width: 300px;
+  width: 100%;
 }
 
 .weatherBlock {

@@ -31,24 +31,27 @@
         <div class="form-group">
           <input id="newLocation" class="form-control controls" type="text" placeholder="New Weather Location&hellip;">
         </div>
+
+        <!-- set user unit preference -->
+        <div class="form-group">
+          <div class="btn-group ml-4">
+            <div class="btn btn-outline-secondary" id="fahrenheit">°F</div>
+            <div class="btn btn-outline-secondary" id="celsius">°C</div>
+          </div>
+        </div>
+
       </form>
     </div>
   </nav>
 
   <div class="container">
-    <div class="row">
+    <div class="row pr-1 pl-1">
       <div class="weatherBlock col-sm-12 mx-auto text-center mt-4 p-3 pb-4 rounded">
         <h1 id="placeName"></h1>
         <h5 class="w-latLon"></h5>
         <h5 id="w-timezone"></h5>
         <canvas id="skycon"></canvas>
         <h3 id="w-summary"></h3>
-
-<div class="btn-group">
-  <div class="btn btn-outline-secondary" id="fahrenheit">°F</div>
-  <div class="btn btn-outline-secondary" id="celsius">°C</div>
-</div>
-
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
@@ -86,11 +89,11 @@
           <form id="w-form">
             <div class="form-group">
               <label for="lat">Latitude</label>
-              <input type="text" class="form-control" id="lat" placeholder="Enter Latitude Coordinate">
+              <input type="number" class="form-control" id="lat" placeholder="Enter Latitude Coordinate">
             </div>
             <div class="form-group">
               <label for="lon">Longitude</label>
-              <input type="text" class="form-control" id="lon" placeholder="Enter Longitude Coordinate">
+              <input type="number" class="form-control" id="lon" placeholder="Enter Longitude Coordinate">
             </div>
           </form>
         </div>

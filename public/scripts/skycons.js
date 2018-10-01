@@ -595,7 +595,7 @@
         h = ctx.canvas.height,
         s = Math.min(w, h);
 
-    rain(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, '#304E6C');
+    rain(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, '#7C92A8');
     cloud(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, '#636E79');
   };
 
@@ -604,7 +604,7 @@
         h = ctx.canvas.height,
         s = Math.min(w, h);
 
-    sleet(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, '#304E6C');
+    sleet(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, '#7C92A8');
     cloud(ctx, t, w * 0.5, h * 0.37, s * 0.9, s * STROKE, '#636E79');
   };
 
