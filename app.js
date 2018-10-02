@@ -17,7 +17,7 @@ const alertModal = document.querySelector('#alertModal');
 document.addEventListener('DOMContentLoaded', getWeather);
 
 // change location event
-document.querySelector('#w-change-btn').addEventListener('click', (e) => {
+document.querySelector('#w-change-btn').addEventListener('click', () => {
   const lat = document.querySelector('#lat').value;
   const lon = document.querySelector('#lon').value;
 
@@ -37,7 +37,8 @@ document.querySelector('#w-change-btn').addEventListener('click', (e) => {
 });
 
 // getLocalWeather event
-document.querySelector('#getLocalWeather').addEventListener('click', (e) => {
+document.querySelector('#getLocalWeather').addEventListener('click', () => {
+
   // get current location via geolocation
   navigator.geolocation.getCurrentPosition(function(position) {
     const lat = position.coords.latitude;
@@ -49,18 +50,24 @@ document.querySelector('#getLocalWeather').addEventListener('click', (e) => {
     storage.setLocationData(lat, lon);
     // get and display weather
     getWeather();
+  },
+
+  // error handling: e.g., error.code of 1 = permission denied message
+  function (error) { 
+    if (error.code)
+    ui.showAlertBody(`Sorry, but the following error occurred: ${error.message}`, 'alert-warning');
   });
 });
 
 // set local storage for celsius
-celsiusBtn.addEventListener('click', (e) => {
+celsiusBtn.addEventListener('click', () => {
   const tempFC = 'celsius';
   storage.setTempFC(tempFC);
   getWeather();
 });
 
 // set local storage for fahrenheit
-fahrenheitBtn.addEventListener('click', (e) => {
+fahrenheitBtn.addEventListener('click', () => {
   const tempFC = 'fahrenheit';
   storage.setTempFC(tempFC);
   getWeather();
