@@ -128,10 +128,12 @@ function initAutocomplete(){
   // Listen for the event fired when the user selects a prediction and retrieve details
   searchBox.addListener('places_changed', function() {
     let places = searchBox.getPlaces();
-    address = places[0].formatted_address;
+
+    // error handling if place does not exist
     if (places.length == 0) {
-      return;
+      ui.showAlertBody(`Hmmm, that place does not appear to exist.`, 'alert-warning')
     }
+    address = places[0].formatted_address;
 
     // call geocoder via axios, grab lat/lon, change/store/get/display weather
     geocoder();
