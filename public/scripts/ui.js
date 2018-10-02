@@ -60,4 +60,48 @@ class UI {
     this.lat.value = '';
     this.lon.value = '';
   }
+
+  // show alert for body and timeOut
+  showAlertBody(message, className){
+    // create div element
+    const div = document.createElement('div');
+    // add two classes to div: 'alert' for timeOut of alert, 'className' for style (via CSS)
+    div.className = `alert ${className} mt-4`;
+    // append message argument to div as text
+    div.appendChild(document.createTextNode(message));
+    // get parent element
+    // const container = document.querySelector('.container');
+    const body = document.querySelector('.container');
+    // get form element
+    const alertBody = document.querySelector('#alertBody');
+    // insert div alert within body, immediately before the form
+    body.insertBefore(div, alertBody);
+
+    // remove div after 3s
+    setTimeout(function(){
+      document.querySelector('.alert').remove();
+    }, 3000);
+  }
+
+  // show alert for modal and timeOut
+  showAlertModal(message, className){
+    // create div element
+    const div = document.createElement('div');
+    // add two classes to div: 'alert' for timeOut of alert, 'className' for style (via CSS)
+    div.className = `alert ${className}`;
+    // append message argument to div as text
+    div.appendChild(document.createTextNode(message));
+    // get parent element
+    // const container = document.querySelector('.container');
+    const modalBody = document.querySelector('.modal-body');
+    // get form element
+    const form = document.querySelector('#w-form');
+    // insert div alert within modalBody, immediately before the form
+    modalBody.insertBefore(div, form);
+
+    // remove div after 3s
+    setTimeout(function(){
+      document.querySelector('.alert').remove();
+    }, 3000);
+  }
 }

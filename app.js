@@ -7,9 +7,11 @@ const weather = new Weather(weatherLocation.lat, weatherLocation.lon, weatherLoc
 // init UI
 const ui = new UI();
 
-// listeners for user unit display preference
+// for user unit display preference
 const celsiusBtn = document.querySelector('#celsius');
 const fahrenheitBtn = document.querySelector('#fahrenheit');
+// for alerts
+const alertModal = document.querySelector('#alertModal');
 
 // get weather on DOM load
 document.addEventListener('DOMContentLoaded', getWeather);
@@ -19,14 +21,19 @@ document.querySelector('#w-change-btn').addEventListener('click', (e) => {
   const lat = document.querySelector('#lat').value;
   const lon = document.querySelector('#lon').value;
 
-  // change location
-  weather.changeLocation(lat, lon);
-  // set location to localStorage
-  storage.setLocationData(lat, lon);
-  // get and display weather
-  getWeather();
-  // close modal (must use JQuery for Bootstrap modal)
-  $('#locModal').modal('hide');
+  if(Math.abs(lat) <= 90 && Math.abs(lon) <= 180 && lat != '' && lon != ''){
+    // change location
+    weather.changeLocation(lat, lon);
+    // set location to localStorage
+    storage.setLocationData(lat, lon);
+    // get and display weather
+    getWeather();
+    // close modal (must use JQuery for Bootstrap modal)
+    $('#locModal').modal('hide');
+  } else {
+    // error handling
+    ui.showAlertModal('Please enter valid lat/long values.', 'alert-warning');
+  }
 });
 
 // getLocalWeather event
@@ -80,7 +87,8 @@ function getWeather(){
         ui.paintF(results);
       }
     })
-    .catch(err => console.log(err));
+    // error handling
+    .catch(err => ui.showAlertBody(`Hmmm, seems that we have a ${err}`, 'alert-danger'));
   // clear form fields
   ui.clear();
 }
@@ -91,7 +99,8 @@ function getPlace(){
     .then(place => {
       ui.paintPlace(place);
     })
-    .catch(err => console.log(err));
+    // error handling
+    .catch(err => ui.showAlertBody(`Hmmm, seems that we have a ${err}`, 'alert-danger'));
 }
 
 // load google places autocomplete
@@ -138,9 +147,8 @@ function initAutocomplete(){
         // get and display weather
         getWeather();
       })
-      .catch(err => {
-        console.log(err);
-      });
+      // error handling
+      .catch(err => ui.showAlertBody(`Hmmm, seems that we have a ${err}`, 'alert-danger'));
     }
   });
 }
