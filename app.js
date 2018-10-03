@@ -129,35 +129,40 @@ function initAutocomplete(){
   searchBox.addListener('places_changed', function() {
     let places = searchBox.getPlaces();
 
-    // error handling if place does not exist
-    if (places.length == 0) {
+    // use try/catch to handle error if user enters a place that does not exist
+    try {
+      address = places[0].formatted_address;
+
+      // call geocoder via axios, grab lat/lon, change/store/get/display weather
+      geocoder();
+      function geocoder(){
+        axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+          params: {
+            address: address,
+            key: weather.weatherAPI()
+          }
+        })
+        .then(res => {
+          // get lat/lon
+          let lat = res.data.results[0].geometry.location.lat;
+          let lon = res.data.results[0].geometry.location.lng;
+
+          // change location
+          weather.changeLocation(lat, lon);
+          // set location to localStorage
+          storage.setLocationData(lat, lon);
+          // get and display weather
+          getWeather();
+        })
+        // error handling
+        .catch(err => ui.showAlertBody(`Hmmm, seems that we have a ${err}`, 'alert-danger'));
+      }
+
+    // err handling for place that does not exist in Google places
+    } catch(err) {
+      // console.log(err);
       ui.showAlertBody(`Hmmm, that place does not appear to exist.`, 'alert-warning')
     }
-    address = places[0].formatted_address;
 
-    // call geocoder via axios, grab lat/lon, change/store/get/display weather
-    geocoder();
-    function geocoder(){
-      axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-          address: address,
-          key: weather.weatherAPI()
-        }
-      })
-      .then(res => {
-        // get lat/lon
-        let lat = res.data.results[0].geometry.location.lat;
-        let lon = res.data.results[0].geometry.location.lng;
-
-        // change location
-        weather.changeLocation(lat, lon);
-        // set location to localStorage
-        storage.setLocationData(lat, lon);
-        // get and display weather
-        getWeather();
-      })
-      // error handling
-      .catch(err => ui.showAlertBody(`Hmmm, seems that we have a ${err}`, 'alert-danger'));
-    }
   });
 }
